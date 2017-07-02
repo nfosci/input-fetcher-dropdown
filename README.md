@@ -48,19 +48,19 @@ Each dropdown is formated with "displayFormat" with the attributes to be display
 
 JSON from server:
 
-[
-  {
+    [
+        {
 	    "image":"images\/1.png",
 	    "name":"<strong>Gi<\/strong>ani Thompson",
 	    "uuid":"e552425f-26b1-11e7-9c74-123943fe746b",
 	    "name_first":"Giani",
 	    "name_last":"Thompson",
 	    "birthday":"1985-04-31",
-    	"contact_uuid":"a4523e5c-26b1-11e7-9c74-123943fe746b",
-    	"contact_name":"Remember this is a static file so it will always look like 'gi' was typed in to the input block.",
-    	"contact_number":"4351234321"
-	  }
-  ]
+	    "contact_uuid":"a4523e5c-26b1-11e7-9c74-123943fe746b",
+	    "contact_name":"Remember this is a static file so it will always look like 'gi' was typed in to the input block.",
+	    "contact_number":"4351234321"
+	}
+    ]
 
 Notice that the attributes all match up.  The JSON data that is provided by the server is not currently provided as part of this package.
 I may provide this in the future.
