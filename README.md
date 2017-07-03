@@ -68,20 +68,23 @@ The JSON data that is provided by the server is not currently provided as part o
 
 ### Using The Data
 
-The other data that was provided can still be accessed once the object has been selected and the index has been stored in the hidden input field.  all the data is stored in spans with classes set to the variable name. 
+The data is displayed in the format below while in the dropdown view.  
 
 > Example:  \<div id="uuid-e553425f-26b1-11e7-9c74-123943fe746b">\<img src="images/2.png"> \<span class="name">Tom Ec\<strong>gi\</strong>o\</span> \<br> \<span class="birthday">1974-02-21\</span>\<span class="contact_name">Jim Smith\</span>\<span class="contact_number input-fetcher-dropdown-hidden">7021231234\</span>\</div>
 
-Take note that the id will have the 'dataIndex' prefix followed by a '-'.  This ensures that the id is always a letter.  The 'dataObjectSelection' (in the example is 'name') will have some html formatting to identify the characters that were used in the ajax query.  Using the below jQuery:  
+Once the selection occurs, the displayed div is hidden and each 'displayData' will become a hidden input field.  (With the exception of 'image') 
 
-> alert( $('#uuid-e553425f-26b1-11e7-9c74-123943fe746b').children('.name').text() );
 
-outputs 'Tom Ecgio'.  
+> \<input type="hidden" id="sample-input-uuid" name="sample-input-uuid" value="e553425f-26b1-11e7-9c74-123943fe746b">
+> \<input type="hidden" id="sample-input-name" name="sample-input-name" value="Tom Ecgio">
+> \<input type="hidden" id="sample-input-birthday" name="sample-input-birthday" value="1974-02-21">
+> \<input type="hidden" id="sample-input-contact_name" name="sample-input-contact_name" value="Jim Smith">
+> \<input type="hidden" id="sample-input-contact_number" name="sample-input-contact_number" value="7021231234">
 
-Also, the contact_uuid is not displayed in the example above.  This is because it was not provided as a data element in 'displayData'.  If you were to add it, you also need to add it onto the 'displayFormat' string.  
 
-The 'displayData' object also controls if the element is visible to the end user.  Setting the value to 'FALSE' still allows access via the DOM as you can see in the example above.     
+Also, the 'contact_uuid' field is not displayed in the example above.  This is because it was not provided as a data element in 'displayData'.  If you were to add it, you also may add it onto the 'displayFormat' string or it will be appended to the end. 
 
+The 'displayData' object also controls if the element is visible to the end user.  Setting the value to 'FALSE' still creates the hidden input field.  'contact_number' is a good example of this.
 
 
 
