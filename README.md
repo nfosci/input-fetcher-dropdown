@@ -82,7 +82,7 @@ The data is displayed in the format below while in the dropdown view.
 	</div>
 
 
-Once the selection occurs, the displayed div is hidden and each 'displayData' will become a hidden input field.  (With the exception of 'image') 
+Once the selection occurs, the displayed div is hidden and each 'displayData' will become a hidden input field.  (With the exception of 'image')  Note that the data feilds provided by 'displayData' are appended to the input textbox's id.  In this example the textbox is 'sample-input' so the selected birthday value would be stored in 'sample-input-birthday'
 
 
     <input type="hidden" id="sample-input-uuid" name="sample-input-uuid" value="e553425f-26b1-11e7-9c74-123943fe746b">
