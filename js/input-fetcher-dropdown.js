@@ -26,10 +26,8 @@ THE SOFTWARE.
 
 (function ( $ ) {
     $.fn.inputFetcherDropdown = function( options ) {
-        var thisObject = this;
 		
-		this.parent().append("<div id='"+ thisObject.attr('id') +"-input-fetcher-dropdown-result' class='input-fetcher-dropdown-result'></div>");
-		this.parent().append("<input type='hidden' id='"+ thisObject.attr('id') +"-selected-index' name='"+ thisObject.attr('id') +"-selected-result' >");
+		var thisObject = this;
 		
 		// setup default options, also allow overwriting of defaults with options
         var settings = $.extend({
@@ -37,12 +35,19 @@ THE SOFTWARE.
             dropdownObject: "#" + thisObject.attr('id') + "-input-fetcher-dropdown-result" ,
 			dataSourceURL: "data/test-data.json",
 			dataIndex: "uuid",
-			storeDataIdObject: "#" + thisObject.attr('id') + "-selected-index", 
+			storeDataIdObject: "", 
 			displayFormat: "%%image%% %%name%%<br>%%birthday%% - %%contact_name%% - %%contact_number%%",
 			displayData: {'image':'TRUE', 'name':'TRUE', 'birthday':'TRUE', 'contact_name':'TRUE', 'contact_number':'FALSE'},
 			dataObjectSelection: 'name'
 			
 		}, options );
+		
+		settings.storeDataIdObject = "#" + thisObject.attr('id') + "-" + settings.dataIndex;
+		
+		
+		this.parent().append("<div id='" + thisObject.attr('id') + "-input-fetcher-dropdown-result' class='input-fetcher-dropdown-result'></div>");
+		this.parent().append("<input type='hidden' id='" + thisObject.attr('id') + "-" + settings.dataIndex + "' name='" + thisObject.attr('id') + "-" + settings.dataIndex + "' >");
+		
  		
 		
  		// process the click
@@ -50,14 +55,35 @@ THE SOFTWARE.
     		
 			var thisisit = $(event.target).closest('.input-fetcher-dropdown-show')
 			
-			thisObject.val( thisisit.children('.'+ settings.dataObjectSelection).text() );
+			thisObject.val( thisisit.children('.' + settings.dataObjectSelection).text() );
 			event.stopPropagation();
-			$(settings.storeDataIdObject).val( thisisit.attr('id') );
+			$(settings.storeDataIdObject).val( thisisit.attr('id').substr(settings.dataIndex.length + 1, thisisit.attr('id').length ) );
 			
-			//$(settings.dropdownObject).html(''); 
+			// Remove the existing data
+			$.each(settings.displayData, function( x, y ) {
+				$('#' + thisObject.attr('id') + "-" + x ).remove();
+			});
+			
+			$.each(settings.displayData, function( x, y ) {
+				if(x != "image")
+				{
+				thisObject.parent().append("<input type='hidden' id='"+ thisObject.attr('id') + "-" + x + "' name='"+ thisObject.attr('id') + "-" + x + "' value='" + $('#' + thisisit.attr('id')).find('.' + x ).text() + "'>");
+				}
+			});
+			
+			
+			
+			
+			
 			$(settings.dropdownObject).hide();
+			$(settings.dropdownObject).html('');
 			
 		});
+		
+		
+		
+		
+		
 		
 		// hide the dropdown display
 		$('html').click(function() {
@@ -69,8 +95,8 @@ THE SOFTWARE.
 		{ 
 			$(settings.storeDataIdObject).val('');
 			var searchid = $(this).val();
-			var dataString = 'search='+ searchid;
-			if(searchid=='' || searchid.length < 2)
+			var dataString = 'search=' + searchid;
+			if( searchid == '' || searchid.length < 2)
 			{
 				$(settings.dropdownObject).html(''); 
 				$(settings.dropdownObject).hide();	  
@@ -93,36 +119,56 @@ THE SOFTWARE.
 						$.each( result_json, function( i, val ) {
 							var htmlout = settings.displayFormat;
   			
-							$(settings.dropdownObject).append( '<div id=\''+settings.dataIndex+'-' + val[settings.dataIndex] + '\' ></div>' );
+							$(settings.dropdownObject).append( '<div id=\'' + settings.dataIndex + '-' + val[settings.dataIndex] + '\' ></div>' );
 						
-							$('#'+settings.dataIndex+'-'+val[settings.dataIndex]).addClass( 'input-fetcher-dropdown-show' );
-							if(index == result_json.length-1)
+							$('#' + settings.dataIndex + '-' + val[settings.dataIndex]).addClass( 'input-fetcher-dropdown-show' );
+							if(index == result_json.length - 1)
 							{
-								$('#'+settings.dataIndex+'-'+val[settings.dataIndex]).addClass( 'last' );
+								$('#' + settings.dataIndex + '-' + val[settings.dataIndex]).addClass( 'last' );
 							}
-							$('#'+settings.dataIndex+'-'+val[settings.dataIndex]).addClass( 'input-fetcher-dropdown-option' );
+							$('#' + settings.dataIndex + '-' + val[settings.dataIndex]).addClass( 'input-fetcher-dropdown-option' );
 							 
-							$('#'+settings.dataIndex+'-'+val[settings.dataIndex]).attr( 'align', 'left' );
+							$('#' + settings.dataIndex + '-' + val[settings.dataIndex]).attr( 'align', 'left' );
 		
 							$.each(settings.displayData, function( x, y ) {
 								if(val[x] == null) 
 								{
 									htmlout = htmlout.replace('%%' + x + '%%', '');
+									val[x] = '';
 								}
 								if(x == 'image') 
 								{
-									htmlout = htmlout.replace('%%' + x + '%%',  "<img src='"+val[x]+"' />" );
+									htmlout = htmlout.replace('%%' + x + '%%',  "<img src='" + val[x] + "' />" );
 								}
+								
+								sresult = htmlout.search('%%' + x + '%%');
+								
 								if(y == 'TRUE') 
 								{
-									htmlout = htmlout.replace('%%' + x + '%%', "<span class='"+x+"'>" + val[x] + "</span>");
+									// if the displayData isnt in displayFormat let add it to the end
+									if( sresult >= 0)
+									{
+										htmlout = htmlout.replace('%%' + x + '%%', "<span class='"+x+"'>" + val[x] + "</span>");
+									}
+									if( sresult < 0 && x != 'image')
+									{
+										htmlout +=  "<span class='"+x+"'>" + val[x] + "</span>";
+									}
 								}
 								else
 								{
-									htmlout = htmlout.replace('%%' + x + '%%', "<span class='"+x+" input-fetcher-dropdown-hidden'>" + val[x] + "</span>");
+									// if the displayData isnt in displayFormat let add it to the end
+									if( sresult >= 0)
+									{
+										htmlout = htmlout.replace('%%' + x + '%%', "<span class='"+x+" input-fetcher-dropdown-hidden'>" + val[x] + "</span>");
+									}
+									if( sresult < 0 && x != 'image')
+									{
+										htmlout +=  "<span class='" + x + " input-fetcher-dropdown-hidden'>" + val[x] + "</span>";
+									}
 								}
 							});
-							$('#'+settings.dataIndex+'-'+val[settings.dataIndex]).html(htmlout);
+							$('#' + settings.dataIndex + '-' + val[settings.dataIndex] ).html(htmlout);
 							index++;
   						});	
 				    }
@@ -131,3 +177,6 @@ THE SOFTWARE.
 		});
     };
 }( jQuery ));
+
+
+
