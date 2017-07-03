@@ -47,9 +47,7 @@ Each dropdown is formated with "displayFormat" with the attributes to be display
 ### Options
 
 > dataSourceURL 
-
 > This is a data source that can provide the JSON data need to populate the dropdown.  
-
 > Example:   dataSourceURL: "data/test-data.json"
 
 
