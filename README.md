@@ -63,11 +63,11 @@ This provides for some simple formatting of the dropdown.  The fields are wrappe
 
 Provides which data elements will be displayed (when set to 'TRUE') to the end user through the dropdown. And if set to 'FALSE' will only be available as a hidden input field when the user clicks on the dropdown.
 
-**dataObjectSelection
+**dataObjectSelection**
 
 Selects the data element that will populate the original input form field.
 
-**afterSelectFunction
+**afterSelectFunction**
 
 This can setup a function call after the user makes a selection and after the hidden form input fields have been setup.  This can be useful for using the data without having to setup a listener.  
 
