@@ -72,14 +72,14 @@ The data is displayed in the format below while in the dropdown view.
 
     Example:  
     
-    <div id="uuid-e553425f-26b1-11e7-9c74-123943fe746b">
-        <img src="images/2.png"> 
-	<span class="name">Tom Ec\<strong>gi\</strong>o\</span> 
-	<br> 
-	<span class="birthday">1974-02-21\</span>
-	<span class="contact_name">Jim Smith\</span>
-	<span class="contact_number input-fetcher-dropdown-hidden">7021231234\</span>
-    </div>
+	<div id="uuid-e553425f-26b1-11e7-9c74-123943fe746b">
+ 		<img src="images/2.png"> 
+		<span class="name">Tom Ec\<strong>gi\</strong>o\</span> 
+		<br> 
+		<span class="birthday">1974-02-21\</span>
+		<span class="contact_name">Jim Smith\</span>
+		<span class="contact_number input-fetcher-dropdown-hidden">7021231234\</span>
+	</div>
 
 
 Once the selection occurs, the displayed div is hidden and each 'displayData' will become a hidden input field.  (With the exception of 'image') 
