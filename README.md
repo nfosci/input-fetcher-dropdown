@@ -71,24 +71,25 @@ The JSON data that is provided by the server is not currently provided as part o
 The data is displayed in the format below while in the dropdown view.  
 
     Example:  
-    \<div id="uuid-e553425f-26b1-11e7-9c74-123943fe746b">
-        \<img src="images/2.png"> 
-	\<span class="name">Tom Ec\<strong>gi\</strong>o\</span> 
-	\<br> 
-	\<span class="birthday">1974-02-21\</span>
-	\<span class="contact_name">Jim Smith\</span>
-	\<span class="contact_number input-fetcher-dropdown-hidden">7021231234\</span>
-    \</div>
+    
+    <div id="uuid-e553425f-26b1-11e7-9c74-123943fe746b">
+        <img src="images/2.png"> 
+	<span class="name">Tom Ec\<strong>gi\</strong>o\</span> 
+	<br> 
+	<span class="birthday">1974-02-21\</span>
+	<span class="contact_name">Jim Smith\</span>
+	<span class="contact_number input-fetcher-dropdown-hidden">7021231234\</span>
+    </div>
 
 
 Once the selection occurs, the displayed div is hidden and each 'displayData' will become a hidden input field.  (With the exception of 'image') 
 
 
-    \<input type="hidden" id="sample-input-uuid" name="sample-input-uuid" value="e553425f-26b1-11e7-9c74-123943fe746b">
-    \<input type="hidden" id="sample-input-name" name="sample-input-name" value="Tom Ecgio">
-    \<input type="hidden" id="sample-input-birthday" name="sample-input-birthday" value="1974-02-21">
-    \<input type="hidden" id="sample-input-contact_name" name="sample-input-contact_name" value="Jim Smith">
-    \<input type="hidden" id="sample-input-contact_number" name="sample-input-contact_number" value="7021231234">
+    <input type="hidden" id="sample-input-uuid" name="sample-input-uuid" value="e553425f-26b1-11e7-9c74-123943fe746b">
+    <input type="hidden" id="sample-input-name" name="sample-input-name" value="Tom Ecgio">
+    <input type="hidden" id="sample-input-birthday" name="sample-input-birthday" value="1974-02-21">
+    <input type="hidden" id="sample-input-contact_name" name="sample-input-contact_name" value="Jim Smith">
+    <input type="hidden" id="sample-input-contact_number" name="sample-input-contact_number" value="7021231234">
 
 
 Also, the 'contact_uuid' field is not displayed in the example above.  This is because it was not provided as a data element in 'displayData'.  If you were to add it, you also may add it onto the 'displayFormat' string or it will be appended to the end. 
