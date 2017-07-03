@@ -46,13 +46,32 @@ Each dropdown is formated with "displayFormat" with the attributes to be display
 
 ### Options
 
-> dataSourceURL 
-> This is a data source that can provide the JSON data need to populate the dropdown.  
-> Example:   dataSourceURL: "data/test-data.json"
+dataSourceURL 
 
+This is a data source that can provide the JSON data need to populate the dropdown.  
+Example:   dataSourceURL: "data/test-data.json"
 
+dataIndex
 
+This is one of the data fields that is provided in the JSON data.  This is what will be used to manage the dropdown data.
 
+displayFormat
+
+This provides for some simple formatting of the dropdown.  The fields are wrapped in the double percent symbols.
+
+displayData
+
+Provides which data elements will be displayed (when set to 'TRUE') to the end user through the dropdown. And if set to 'FALSE' will only be available as a hidden input field when the user clicks on the dropdown.
+
+dataObjectSelection
+
+Selects the data element that will populate the original input form field.
+
+afterSelectFunction
+
+This can setup a function call after the user makes a selection and after the hidden form input fields have been setup.  This can be useful for using the data without having to setup a listener.  
+
+Example:   afterSelectFunction: 'testMeOut()'
 
 
 
