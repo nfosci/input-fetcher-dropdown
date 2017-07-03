@@ -73,7 +73,9 @@ The other data that was provided can still be accessed once the object has been 
 > Example:  \<div id="uuid-e553425f-26b1-11e7-9c74-123943fe746b">\<img src="images/2.png"> \<span class="name">Tom Ec\<strong>gi\</strong>o\</span> \<br> \<span class="birthday">1974-02-21\</span>\<span class="contact_name">Jim Smith\</span>\<span class="contact_number input-fetcher-dropdown-hidden">7021231234\</span>\</div>
 
 Take note that the id will have the 'dataIndex' prefix followed by a '-'.  This ensures that the id is always a letter.  The 'dataObjectSelection' (in the example is 'name') will have some html formatting to identify the characters that were used in the ajax query.  Using the below jQuery:  
+
 > alert( $('#uuid-e553425f-26b1-11e7-9c74-123943fe746b').children('.name').text() );
+
 outputs 'Tom Ecgio'.  
 
 Also, the contact_uuid is not displayed in the example above.  This is because it was not provided as a data element in 'displayData'.  If you were to add it, you also need to add it onto the 'displayFormat' string.  
