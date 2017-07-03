@@ -15,6 +15,12 @@
 </form>
 
 <script type="text/javascript">
+
+function testMeOut()
+{
+	alert( $('#sample-input-uuid').val() );
+}
+	
 $( "#sample-input" ).inputFetcherDropdown({
 	dataSourceURL: "data/test-data.json",
 	dataIndex: "uuid",
@@ -26,7 +32,8 @@ $( "#sample-input" ).inputFetcherDropdown({
 			'contact_name':'TRUE', 
 			'contact_number':'FALSE'
 			},
-	dataObjectSelection: 'name'
+	dataObjectSelection: 'name',
+	afterSelectFunction: 'testMeOut()'
 });
 </script>
 
