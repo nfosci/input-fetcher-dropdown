@@ -4,9 +4,10 @@
 input-fetcher-dropdown is a jQuery plugin that facilitates the use of server side lookup via ajax and json.
 
   - completely editable in CSS file
-  - Customize the HTML in the drop down
+  - customize the HTML in the drop down
   - full setting override
   - visible and hidden attributes are accessable after selection
+  - call a function after selection
 
 
 
