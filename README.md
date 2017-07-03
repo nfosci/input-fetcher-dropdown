@@ -8,9 +8,7 @@ input-fetcher-dropdown is a jQuery plugin that facilitates the use of server sid
   - full setting override
   - visible and hidden attributes are accessable after selection
 
-# New Features!
 
-  This is a new plug in, features will be added...
 
 # Useage
 
