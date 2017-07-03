@@ -48,19 +48,19 @@ Each dropdown is formated with "displayFormat" with the attributes to be display
 
 JSON from server:
 
-    [
-        {
-	"image":"images\/2.png",
-	"name":"Tom Ec<strong>gi<\/strong>o",
-	"uuid":"e553425f-26b1-11e7-9c74-123943fe746b",
-	"name_first":"Tom",
-	"name_last":"Ecgio",
-	"birthday":"1974-02-21",
-	"contact_uuid":"1263415e-26b1-11e7-9c74-123943fe746b",
-	"contact_name":"Jim Smith",
-	"contact_number":"7021231234"
-	}
-    ]
+	[
+		{
+		"image":"images\/2.png",
+		"name":"Tom Ec<strong>gi<\/strong>o",
+		"uuid":"e553425f-26b1-11e7-9c74-123943fe746b",
+		"name_first":"Tom",
+		"name_last":"Ecgio",
+		"birthday":"1974-02-21",
+		"contact_uuid":"1263415e-26b1-11e7-9c74-123943fe746b",
+		"contact_name":"Jim Smith",
+		"contact_number":"7021231234"
+		}
+	]
 
 Notice that the attributes all match up to the fields provide in the JS section.  The JSON in our exapmple comes from the 'data/test-data.json' file in this package.  This must be tested on a server b/c the ajax query will not work in local viewing.  
 
@@ -74,11 +74,11 @@ The data is displayed in the format below while in the dropdown view.
     
 	<div id="uuid-e553425f-26b1-11e7-9c74-123943fe746b">
  		<img src="images/2.png"> 
-		<span class="name">Tom Ec\<strong>gi\</strong>o\</span> 
+		<span class="name">Tom Ec<strong>gi</strong>o</span> 
 		<br> 
-		<span class="birthday">1974-02-21\</span>
-		<span class="contact_name">Jim Smith\</span>
-		<span class="contact_number input-fetcher-dropdown-hidden">7021231234\</span>
+		<span class="birthday">1974-02-21</span>
+		<span class="contact_name">Jim Smith</span>
+		<span class="contact_number input-fetcher-dropdown-hidden">7021231234</span>
 	</div>
 
 
