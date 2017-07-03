@@ -50,26 +50,31 @@ JSON from server:
 
     [
         {
-	    "image":"images\/1.png",
-	    "name":"<strong>Gi<\/strong>ani Thompson",
-	    "uuid":"e552425f-26b1-11e7-9c74-123943fe746b",
-	    "name_first":"Giani",
-	    "name_last":"Thompson",
-	    "birthday":"1985-04-31",
-	    "contact_uuid":"a4523e5c-26b1-11e7-9c74-123943fe746b",
-	    "contact_name":"Remember this is a static file so it will always look like 'gi' was typed in to the input block.",
-	    "contact_number":"4351234321"
+	"image":"images\/2.png",
+	"name":"Tom Ec<strong>gi<\/strong>o",
+	"uuid":"e553425f-26b1-11e7-9c74-123943fe746b",
+	"name_first":"Tom",
+	"name_last":"Ecgio",
+	"birthday":"1974-02-21",
+	"contact_uuid":"1263415e-26b1-11e7-9c74-123943fe746b",
+	"contact_name":"Jim Smith",
+	"contact_number":"7021231234"
 	}
     ]
 
 Notice that the attributes all match up.  The JSON data that is provided by the server is not currently provided as part of this package.  I may provide this in the future.
 
-### Using Other Data
+### Using The Data
 
 The other data that was provided can still be accessed once the object has been selected and the index has been stored in the hidden input field.  all the data is stored in spans with classes set to the variable name. 
 
-> Example:  \<div id="uuid-e553425f-26b1-11e7-9c74-123943fe746b">\<img src="images/2.png"> \<span class="name">Tom Ec\<strong>gi\</strong>o\</span> \<br> \<span class="birthday">1974-02-21\</span>\</div>
+> Example:  \<div id="uuid-e553425f-26b1-11e7-9c74-123943fe746b">\<img src="images/2.png"> \<span class="name">Tom Ec\<strong>gi\</strong>o\</span> \<br> \<span class="birthday">1974-02-21\</span>\<span class="contact_name">Jim Smith\</span>\<span class="contact_number input-fetcher-dropdown-hidden">7021231234\</span>\</div>
 
+Take note that the id will have the 'dataIndex' prefix followed by a '-'.  This ensures that the id is always a letter.  The 'dataObjectSelection' (in the example is 'name') will have some html formatting to identify the characters that were used in the ajax query.  Using $('#uuid-e553425f-26b1-11e7-9c74-123943fe746b').children('.name').text() will display 'Tom Ecgio'.  
+
+Also, the contact_uuid is not displayed in the example above.  This is because it was not provided as a data element in 'displayData'.  If you were to add it, you also need to add it onto the 'displayFormat' string.  
+
+The 'displayData' object also controls if the element is visible to the end user.  Setting the value to 'FALSE' still allows access via the DOM as you can see in the example above.     
 
 
 
