@@ -17,9 +17,9 @@
 	"name_first":"Tom",
 	"name_last":"Ecgio",
 	"birthday":"1974-02-21",
-	"contact_uuid":null,
-	"contact_name":null,
-	"contact_number":null
+	"contact_uuid":"1263415e-26b1-11e7-9c74-123943fe746b",
+	"contact_name":"Jim Smith",
+	"contact_number":"7021231234"
 	},
 	{
 	"image":"images\/3.png",
