@@ -58,7 +58,8 @@ This is one of the data fields that is provided in the JSON data.  This is what 
 
 **displayFormat**
 
-This provides for some simple formatting of the dropdown.  The fields are wrapped in the double percent symbols.
+This provides for some simple formatting of the dropdown.  The fields are wrapped in the double percent symbols. 
+*Note that %%image%% will convert into an image tag with the image data as the source.*  
 
 **displayData**
 
