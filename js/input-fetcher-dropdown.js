@@ -38,7 +38,8 @@ THE SOFTWARE.
 			storeDataIdObject: "", 
 			displayFormat: "%%image%% %%name%%<br>%%birthday%% - %%contact_name%% - %%contact_number%%",
 			displayData: {'image':'TRUE', 'name':'TRUE', 'birthday':'TRUE', 'contact_name':'TRUE', 'contact_number':'FALSE'},
-			dataObjectSelection: 'name'
+			dataObjectSelection: 'name',
+			afterSelectFunction: null
 			
 		}, options );
 		
@@ -71,13 +72,13 @@ THE SOFTWARE.
 				}
 			});
 			
-			
-			
-			
-			
 			$(settings.dropdownObject).hide();
 			$(settings.dropdownObject).html('');
-			
+
+			if(settings.afterSelectFunction != null)
+			{
+				eval( settings.afterSelectFunction );
+			}
 		});
 		
 		
@@ -177,6 +178,13 @@ THE SOFTWARE.
 		});
     };
 }( jQuery ));
+
+
+
+
+
+
+
 
 
 
