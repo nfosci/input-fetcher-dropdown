@@ -14,7 +14,7 @@ input-fetcher-dropdown is a jQuery plugin that facilitates the use of server sid
 
 >Copy the contents of the directory structure to your server.  The files are setup to run a demonstration of the tool.  The demo loads a static file so expect that the output doesnt match what is typed.    
     
-HTML:    
+### HTML:    
     
     <form>
 	    <input type="text" class="input-fetcher-dropdown" id="sample-input" placeholder="Search for Name" /> 
@@ -22,7 +22,7 @@ HTML:
 
 The the selected visual data is 'dataObjectSelection' below will be the value for 'sample-input' above.  The 'dataIndex' in our example is a uuid will be stored in an automatically created hidden input with the id='sample-input-selected-index'.  -selected-index is appended to the id of the provided input field.  
 
-JS:
+### JS:
 
     <script type="text/javascript">
         $( "#sample-input" ).inputFetcherDropdown({
@@ -36,15 +36,29 @@ JS:
 	    		'contact_name':'TRUE', 
 		    	'contact_number':'FALSE'
 		    	},
-	    dataObjectSelection: 'name'
+	    	dataObjectSelection: 'name',
+	    	afterSelectFunction: null
     });
     </script>
 
 Each dropdown is formated with "displayFormat" with the attributes to be displayed wrapped in double-percents.  ie: %%name%%    The "displayData" provides the fields that are used and if they are visable.   
 
 
+### Options
 
-JSON from server:
+> dataSourceURL 
+
+> This is a data source that can provide the JSON data need to populate the dropdown.  
+
+> Example:   dataSourceURL: "data/test-data.json"
+
+
+
+
+
+
+
+### JSON from server:
 
 	[
 		{
