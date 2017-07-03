@@ -10,18 +10,15 @@
 
 <body>
 <form>
-<input type="text" class="input-fetcher-dropdown" id="sample-input" placeholder="Search for Participant   (Ex. Nathan, Sam, Jill, etc)" /> <div id="input-fetcher-dropdown-result"></div> 
-
-<br>
-<input type="text" id="input-fetcher-dropdown-selected-id" name="#input-fetcher-dropdown-selected-id">
+	<input type="text" class="input-fetcher-dropdown" id="sample-input" placeholder="Search for Name" /> 
+	
 </form>
 
 <script type="text/javascript">
 $( "#sample-input" ).inputFetcherDropdown({
 	dataSourceURL: "data/test-data.json",
 	dataIndex: "uuid",
-	storeDataIdObject: "#input-fetcher-dropdown-selected-id",
-	displayFormat: "%%image%% %%name%%<br>%%birthday%%   %%contact_name%%   %%contact_number%%",
+	displayFormat: "%%image%% %%name%% <br> %%birthday%%   %%contact_name%%   %%contact_number%%",
 	displayData: {
 			'image':'TRUE', 
 			'name':'TRUE', 
