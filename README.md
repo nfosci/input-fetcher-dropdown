@@ -20,10 +20,9 @@ HTML:
     
     <form>
 	    <input type="text" class="input-fetcher-dropdown" id="sample-input" placeholder="Search for Name" /> 
-	    <div id="input-fetcher-dropdown-result"></div> 
-	    <br>
-	    <input type="text" id="input-fetcher-dropdown-selected-id" name="#input-fetcher-dropdown-selected-id">
     </form>
+
+The the selected visual data is 'dataObjectSelection' below will be the value for 'sample-input' above.  The 'dataIndex' in our example is a uuid will be stored in an automatically created hidden input with the id='sample-input-selected-index'.  -selected-index is appended to the id of the provided input field.  
 
 JS:
 
@@ -31,7 +30,6 @@ JS:
         $( "#sample-input" ).inputFetcherDropdown({
 	        dataSourceURL: "data/test-data.json",
 	        dataIndex: "uuid",
-	        storeDataIdObject: "#input-fetcher-dropdown-selected-id",
 	        displayFormat: "%%image%% %%name%% <br> %%birthday%%   %%contact_name%%   %%contact_number%%",
 	        displayData: {
 		    	'image':'TRUE', 
@@ -45,6 +43,8 @@ JS:
     </script>
 
 Each dropdown is formated with "displayFormat" with the attributes to be displayed wrapped in double-percents.  ie: %%name%%    The "displayData" provides the fields that are used and if they are visable.   
+
+
 
 JSON from server:
 
@@ -62,8 +62,18 @@ JSON from server:
 	}
     ]
 
-Notice that the attributes all match up.  The JSON data that is provided by the server is not currently provided as part of this package.
-I may provide this in the future.
+Notice that the attributes all match up.  The JSON data that is provided by the server is not currently provided as part of this package.  I may provide this in the future.
+
+### Using Other Data
+
+The other data that was provided can still be accessed once the object has been selected and the index has been stored in the hidden input field.  all the data is stored in spans with classes set to the variable name. 
+
+> Example:  \<div id="uuid-e553425f-26b1-11e7-9c74-123943fe746b">\<img src="images/2.png"> \<span class="name">Tom Ec\<strong>gi\</strong>o\</span> \<br> \<span class="birthday">1974-02-21\</span>\</div>
+
+
+
+
+
 
 ### Development
 
